@@ -31,6 +31,10 @@ function main(element)
     }
     t.removeEventListener('click', main);
     check();
+    if(c==9)
+    {
+        document.getElementById('result').innerHTML="✖"+o.outerHTML+"  DRAW";
+    }
 }
 
 function check(){
