@@ -16,7 +16,9 @@ a.setAttribute("class", "bi bi-gear");
 const b = document.createElement("i");
 b.setAttribute("class", "bi bi-moon-fill");
 theme = document.getElementById('theme');
-theme.innerHTML = a.outerHTML;
+theme.innerHTML = b.outerHTML;
+
+let y = document.getElementById("overlay").style;
 
 let c = 0;
 let cell = [];
@@ -97,15 +99,38 @@ function check(){
     return win[1] || win[2] || win[3] || win[4] || win[5] || win[6] || win[7] || win[8];
 }
 
-function refresh()
-{
-    console.log("IN");
-    location.reload();
-    this.removeEventListener();
+// function refresh()
+// {
+//     console.log("IN");
+//     location.reload();
+//     this.removeEventListener();
+    
+// }
+
+function refresh(){
+    player.innerHTML = '<span style="color:rgb(58, 59, 57)">✖</span>';
+    c = 0;
+    for(let i=1 ; i<10 ; i++)
+    {
+        cell[i] = document.getElementById(`c${i}`);
+        cell[i].innerHTML="";
+        cell[i].addEventListener("click", main);
+    }
+    this.removeEventListener("click", refresh);
+    document.getElementById('overlay').innerHTML="";
+    document.getElementById('result').innerHTML="";
+    y.setProperty("height", "0");
+    y.setProperty("width", "0");
+    y.removeProperty("z-index");
+    y.removeProperty("background");
+    y.removeProperty("filter");
+    y.setProperty("opacity", "0");
+    y.setProperty("top", "50%");
+    y.setProperty("left", "50%");
+    o.style.removeProperty("font-size");
 }
 
 function end(){
-    let y = document.getElementById("overlay").style;
     y.setProperty("height", "100%");
     y.setProperty("width", "100%");
     y.setProperty("z-index", "2");

@@ -6,7 +6,8 @@
 }
 body{
     height:100vh;
-    background-color: #0fdbc7;
+    background-color: rgb(26, 24, 24);
+    transition: background-color 1s ease-in-out;
 }
 
 h1{
@@ -23,6 +24,7 @@ h1{
     right: 5%;
     font-size:30px;
     outline:none;
+    color:white;
     border:none;
     border-radius: 20px;
     background: none;
@@ -73,7 +75,7 @@ h1{
 .nav button:hover{
     background: #74dfd4;
 }
-.nav button:focus{
+.nav button:active{
     background-color: #56a39b
 }
 td{
