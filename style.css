@@ -2,6 +2,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family: Poppins, sans-serif;  
 }
 body{
     height:100vh;
@@ -13,7 +14,6 @@ h1{
     font-size:72px;
     color:rgba(255, 255, 255, 0.884);
     text-align:center;
-    font-family: cursive;  
 }
 
 .board table{
@@ -32,17 +32,21 @@ h1{
     padding: 10px 5%;
 }
 .nav p{
-    font-family: cursive;
     color: white;
     font-size: 30px;
     width:50%;
 }
+.nav button i::before{
+    position: relative;
+    bottom:3px;
+    padding : 0 5px 0 5px;
+}
 .nav button{
+    height:50px;
     color: white;
     outline: none;  
     margin-left:auto; 
     border:none;
-    padding:2px;
     background:none;
     font-size: 40px;
     align-items: right;
