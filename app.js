@@ -1,11 +1,15 @@
 const x = document.createElement("i");
 {/* <i class="bi bi-x"></i> */}
 x.setAttribute("class", "bi bi-x color1");
+x.setAttribute("id", "color1");
 // x.setAttribute("aria-hidden", "true");
 {/* <i class="fa fa-circle-o" aria-hidden="true"></i> */}
 const o = document.createElement("i");
 o.setAttribute("class", "fa fa-circle-o color2");
 o.setAttribute("aria-hidden", "true");
+
+player = document.getElementById('player');
+player.innerHTML = '<span style="color:rgb(58, 59, 57)">✖</span>';
 
 let c = 0;
 let cell = [];
@@ -24,17 +28,21 @@ function main(element)
     if(c % 2 == 0){
         t.innerHTML = o.outerHTML;
         cell[parseInt(this.id[1])] = o;
+        player.innerHTML = '<span style="color:rgb(58, 59, 57)">✖</span>';
     }
     else{
         t.innerHTML = x.outerHTML;
         cell[parseInt(this.id[1])] = x;
+        player.innerHTML = o.outerHTML;
     }
     t.removeEventListener('click', main);
     check();
     if(c==9 && !check())
     {
         let x = '<p style="font-size:150px;line-height:160px">✖'+o.outerHTML+'</p>';
-        document.getElementById('result').innerHTML=x+"DRAW";
+        let r = document.getElementById('result');
+        r.style.setProperty("color", "black");
+        r.innerHTML=x+"DRAW";
         end();
     }
 }
@@ -62,12 +70,16 @@ function check(){
         console.log("Win");
         if(c % 2 == 0){
             o.style.setProperty('font-size', "150px");
-            document.getElementById('result').innerHTML=o.outerHTML + "<br>WINNER!";
+            let r = document.getElementById('result');
+            r.style.setProperty("color", "black")
+            r.innerHTML=o.outerHTML + "<br>WINNER!";
             end();
         }
         else{
             let x = '<p style="font-size:150px;line-height:160px">✖</p>';
-            document.getElementById('result').innerHTML=x + "WINNER!";
+            let r = document.getElementById('result');
+            r.style.setProperty("color", "black");
+            r.innerHTML=x + "WINNER!";
             end();
         }
         for(let i=1 ; i<10 ; i++)
@@ -78,8 +90,32 @@ function check(){
     return win[1] || win[2] || win[3] || win[4] || win[5] || win[6] || win[7] || win[8];
 }
 
+function refresh()
+{
+    console.log("IN");
+    location.reload();
+    this.removeEventListener();
+}
+
 function end(){
-    document.getElementById("table").style.setProperty("display", "none");
+    let y = document.getElementById("overlay").style;
+    y.setProperty("height", "100%");
+    y.setProperty("width", "100%");
+    y.setProperty("z-index", "2");
+    y.setProperty("background", "#033530");
+    y.setProperty("filter", "blur(10px)");
+    y.setProperty("opacity", "0.9");
+    y.setProperty("top", "0");
+    y.setProperty("left", "0");
+    let r = document.getElementById("r_div").style;
+    r.setProperty("opacity", "1"); 
+    document.getElementById("result").style.setProperty("font-size", "70px");
+    window.setTimeout(stop, 1000);
+}
+
+function stop()
+{
+    document.addEventListener("click", refresh);
 }
 
 for(let i=1 ; i<10 ; i++)

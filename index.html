@@ -8,13 +8,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <title>Tic Tac Toe</title>
 </head>
 <body>
     <div class="landing">
         <h1><b>Tic Tac Toe</b></h1>
+        <div class="nav">
+            <p>Player: <span id="player"></span></p>
+            <button onclick="refresh()"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
         <div class="board" id="table">
             <table>
                 <tr>
@@ -34,9 +38,11 @@
                 </tr>
             </table>
         </div>
-        <div class="result_div">
+        <div id="overlay"></div>
+        <div class="result_div" id="r_div">
             <h2 class="result" id="result"></h2>
         </div>
+
     </div>
     <script src="app.js"></script>
 </body>
