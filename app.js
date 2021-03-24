@@ -11,6 +11,13 @@ o.setAttribute("aria-hidden", "true");
 player = document.getElementById('player');
 player.innerHTML = '<span style="color:rgb(58, 59, 57)">✖</span>';
 
+const a = document.createElement("i");
+a.setAttribute("class", "bi bi-gear");
+const b = document.createElement("i");
+b.setAttribute("class", "bi bi-moon-fill");
+theme = document.getElementById('theme');
+theme.innerHTML = a.outerHTML;
+
 let c = 0;
 let cell = [];
 
@@ -116,6 +123,20 @@ function end(){
 function stop()
 {
     document.addEventListener("click", refresh);
+}
+
+function change(){
+    if(theme.innerHTML == a.outerHTML){
+        theme.innerHTML = b.outerHTML;
+        document.body.style.setProperty("background", "rgb(26, 24, 24)");
+        theme.style.setProperty('color', 'white');
+
+    }
+    else{
+        theme.innerHTML = a.outerHTML;
+        document.body.style.setProperty("background", "#0fdbc7");
+        theme.style.setProperty('color', 'black');
+    }
 }
 
 for(let i=1 ; i<10 ; i++)

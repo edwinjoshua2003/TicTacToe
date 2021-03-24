@@ -2,7 +2,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Poppins, sans-serif;  
+    /* font-family: 'Poppins', sans-serif;   */
 }
 body{
     height:100vh;
@@ -12,8 +12,25 @@ body{
 h1{
     padding:20px 0;
     font-size:72px;
+    font-family: 'New Tegomin', serif;
+    /* font-style: oblique; */
     color:rgba(255, 255, 255, 0.884);
     text-align:center;
+}
+#theme{
+    position:fixed;
+    top:40px;
+    right: 5%;
+    font-size:30px;
+    outline:none;
+    border:none;
+    border-radius: 20px;
+    background: none;
+    transition: transform 1s ease-in-out;
+}
+#theme:hover{
+    /* color:red; */
+    transform: rotate(360deg);
 }
 
 .board table{
@@ -33,12 +50,13 @@ h1{
 }
 .nav p{
     color: white;
+    font-family: 'Poppins', sans-serif;
     font-size: 30px;
     width:50%;
 }
 .nav button i::before{
     position: relative;
-    bottom:3px;
+    top:2px;
     padding : 0 5px 0 5px;
 }
 .nav button{
